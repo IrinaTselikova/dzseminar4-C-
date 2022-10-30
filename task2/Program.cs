@@ -1,36 +1,26 @@
-﻿/* Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
+﻿/* Напишите программу, которая принимает на 
+вход число и выдаёт сумму цифр в числе.
 452 -> 11
 82 -> 10
 9012 -> 12 */
 
-int GetNumber(string message)
+Console.WriteLine("Введите число:");
+string str = Console.ReadLine();
+int[] array = new int[str.Length];
+for (int i = 0; i < str.Length; i++)
 {
-    Console.WriteLine(message);
-    int result = int.Parse(Console.ReadLine());
-    return result;
+    array[i] = int.Parse(str[i]+ "");
 }
 
-int GetSum(int n)
+int GetSum (int[] array)
 {
-    int[] array=new int[n];
     int sum = 0;
-    int i=0;
-    if (i<array.Length)
+    for (int i = 0; i < array.Length; i++)
     {
         sum = sum + array[i];
-        i++;
     }
-    else
-    Console.WriteLine(sum);
     return sum;
 }
 
-
-int n = GetNumber("Введите число:");
-int sum = GetSum(n);
-Console.WriteLine($"{n} -> {sum}");
-
-
-
-
-
+int sum = GetSum(array);
+Console.WriteLine($"{str} -> {sum}");
