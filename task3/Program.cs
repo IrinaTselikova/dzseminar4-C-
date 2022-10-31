@@ -5,31 +5,21 @@
 ввод элеменетов через консоль (через запятую. использовать 
 метод string.Split()) */
 
-string GetNumber(string message)
+
+Console.WriteLine("Введите числа через запятую:");
+string str = Console.ReadLine();
+string[] strArray = str.Split(',');
+int[] numArray = new int[strArray.Length];
+
+for (int i = 0; i < strArray.Length; i++)
 {
-    Console.WriteLine(message);
-    string result = Console.ReadLine();
-    return result;
+    numArray[i] = int.Parse(strArray[i]);
 }
 
-string str = GetNumber("Введите 8 цифр через запятую:");
-string[] numbers = str.Split(',');
-foreach (var number in numbers)
-
-
-Console.Write($"{number[1]}");
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
+for (int i = 0; i < numArray.Length; i++)
+{
+    if(i < numArray.Length -1)
+    Console.Write($"{numArray[i]}, ");
+    else
+    Console.Write($"{numArray[i]}");
+}
